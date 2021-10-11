@@ -1,4 +1,4 @@
-package com.store.store.dto;
+package com.store.stores.dto;
 
 import java.util.ArrayList;
 
