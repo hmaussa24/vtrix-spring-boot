@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.store.stores.dto.VentasDiariasDTO;
+import com.stores.stores.dto.VentasDiariasDTO;
 import com.stores.stores.models.DetalleVentaModel;
 import com.stores.stores.models.InventarioModel;
 import com.stores.stores.models.VentaModel;
