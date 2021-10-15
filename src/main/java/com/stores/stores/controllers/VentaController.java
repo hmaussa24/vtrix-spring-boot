@@ -35,9 +35,6 @@ public class VentaController {
 
 	@PostMapping(path = "/registrar")
 	public ResponseEntity<?> guardarVena(@RequestBody VentaRequest venta) {
-		if (venta.getCredito().getNumcuotas() != null) {
-			venta.getVenta().setTipo(1);
-		}
 		VentaModel ventatemp = ventaService.guardarVenta(venta.getVenta());
 		ArrayList<InventarioModel> inventario = new ArrayList<InventarioModel>();
 		if (venta.getCredito().getNumcuotas() != null) {

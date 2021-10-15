@@ -16,8 +16,8 @@ public interface ProductoRepository extends CrudRepository<ProductoModel, Long> 
 	@Query(value = "SELECT * FROM productos p WHERE codigo=:codigo AND tienda_id=:id_tienda ", nativeQuery = true)
 	public abstract Optional<ProductoModel> findByCodigo(@Param("codigo") String codigo, @Param("id_tienda") Long id);
 
-	@Query(value = "SELECT * FROM productos * WHERE nombre=:nombre AND tienda_id=:id_tienda", nativeQuery = true)
-	public Optional<ProductoModel> findByNombreAndTienda(@Param("nombre") String nombre, @Param("id_tienda") Long id);
+	@Query(value = "SELECT * FROM productos p WHERE nombre LIKE %:nombre% OR codigo LIKE %:nombre% AND tienda_id=:id_tienda", nativeQuery = true)
+	public ArrayList<ProductoModel> findByNombreAndTienda(@Param("nombre") String nombre, @Param("id_tienda") Long id);
 
 	@Query(value = "SELECT p FROM productos p WHERE descripcion=:des AND tienda_id=:id_tienda", nativeQuery = true)
 	public Optional<ProductoModel> findByDescripcionAndTienda(@Param("des") String des, @Param("id_tienda") Long id);

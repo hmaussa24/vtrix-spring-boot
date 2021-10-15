@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<style>
+		.container {
+			margin: auto;
+			width: 400px;
+			justify-content: center;
+			text-align: center;
+		}
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		h2 {
+
+			color: #8084f1;
+		}
+
+		label {
+			color: #6368d8;
+		}
+		
+		.id{
+			margin-top: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+
+		<div>
+			<img src="cid: imagenTienda" />
+		</div>
+		<div>
+			<h2>!!Pago recibido¡¡</h2>
+		</div>
+		<div>
+			<label th:text="${tienda}"></label> te informa que tu pago por el valor de $<label
+				th:text="${valor}"></label>
+			fue recibido exitosamente el dia <label th:text="${fecha}"></label>
+		</div>
+		<div class="id">
+		 Codigo del pago: <label th:text="${id}"></label>
+		</div>
+
+		<div>Gracias por confiar en nosotros</div>
+	</div>
+</body>
+
+</html>

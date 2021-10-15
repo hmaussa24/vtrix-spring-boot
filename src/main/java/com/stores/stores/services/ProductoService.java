@@ -24,7 +24,7 @@ public class ProductoService {
 		return productoRepository.findById(id);
 	}
 	
-	public Optional<ProductoModel> buscarByNombre(String nombre, Long id) {
+	public ArrayList<ProductoModel> buscarByNombre(String nombre, Long id) {
 		return productoRepository.findByNombreAndTienda(nombre, id);
 	}
 	

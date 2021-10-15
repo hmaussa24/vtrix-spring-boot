@@ -20,6 +20,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/api/login").permitAll()
 			.antMatchers(HttpMethod.POST, "/api/register").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/producto/view-producto/*").permitAll()
 			.anyRequest().authenticated();
 		http.cors();
 	}
