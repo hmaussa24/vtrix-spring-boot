@@ -45,4 +45,4 @@ jobs:
           app-name: 'vitrix-spring-boot'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C863A20DFE6549099BDB98A69F97EC18 }}
-          package: '*.jar'
+          package: '*.war'
