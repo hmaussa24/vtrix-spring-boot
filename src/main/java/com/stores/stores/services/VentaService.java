@@ -15,19 +15,19 @@ public class VentaService {
 
 	@Autowired
 	VentaRepository ventaRepository;
-	
+
 	@Autowired
 	CreditoRepository creditoRepository;
-	
-	public VentaModel guardarVenta(VentaModel venta){
+
+	public VentaModel guardarVenta(VentaModel venta) {
 		return ventaRepository.save(venta);
 	}
-	
+
 	public CreditoModel guardarCredito(CreditoModel credito) {
 		return creditoRepository.save(credito);
 	}
-	
-	public ArrayList<VentaModel> buscarByFecha(String fecha, Long tienda){
+
+	public ArrayList<VentaModel> buscarByFecha(String fecha, Long tienda) {
 		return ventaRepository.ventasByFechaVenta(fecha, tienda);
 	}
 }
