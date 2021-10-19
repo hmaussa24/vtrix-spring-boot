@@ -70,6 +70,26 @@ public class ProductoController {
 
 		return inventario;
 	}
+	
+	
+	@GetMapping(path = "/listarinventario/{tienda}/{nombre}")
+	public ArrayList<InventarioProductoDTO> listarByTiendaInventarioProducto(@PathVariable("nombre") String nombre,
+			@PathVariable("tienda") Long id) {
+		ArrayList<ProductoModel> productos = productoService.buscarByNombre(nombre, id);
+		ArrayList<InventarioProductoDTO> inventario = new ArrayList<InventarioProductoDTO>();
+		for (ProductoModel prod : productos) {
+			ArrayList<ImegesModel> images = imagenesService.buscarPorProducto(prod.getId());
+			if (!images.isEmpty()) {
+				prod.setImage(images.get(0).getImagen());
+			}
+			InventarioProductoDTO inv = new InventarioProductoDTO();
+			inv.setProducto(prod);
+			inv.setInventario(inventarioService.buscarByProductoId(prod.getId()));
+			inventario.add(inv);
+		}
+
+		return inventario;
+	}
 
 	@GetMapping(path = "/buscarbynombre/{tienda}/{nombre}")
 	public ArrayList<ProductoModel> buscarByNombre(@PathVariable("nombre") String nombre,

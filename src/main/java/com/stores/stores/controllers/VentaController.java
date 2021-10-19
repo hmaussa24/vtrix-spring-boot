@@ -54,10 +54,10 @@ public class VentaController {
 
 	}
 	
-	@GetMapping(path = "/informediario/{fecha}")
-	public ResponseEntity<?> informeDiario(@PathVariable("fecha") String fecha){
+	@GetMapping(path = "/informediario/{tienda}/{fecha}")
+	public ResponseEntity<?> informeDiario(@PathVariable("fecha") String fecha, @PathVariable("tienda") Long tienda){
 
-		ArrayList<VentaModel> ventas = ventaService.buscarByFecha(fecha);
+		ArrayList<VentaModel> ventas = ventaService.buscarByFecha(fecha, tienda);
 		ArrayList<VentasDiariasDTO> diarias = new  ArrayList<VentasDiariasDTO>();
 		for(VentaModel venta: ventas) {
 			System.out.print(venta.getFecha());

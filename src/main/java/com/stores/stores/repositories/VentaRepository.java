@@ -13,7 +13,7 @@ import com.stores.stores.models.VentaModel;
 public interface VentaRepository extends CrudRepository<VentaModel, Long> {
 	
 	
-	@Query(value = "SELECT * FROM ventas WHERE ventas.fecha_venta like %:fecha%", nativeQuery = true)
-	public abstract ArrayList<VentaModel> ventasByFechaVenta(@Param("fecha") String fecha);
+	@Query(value = "SELECT * FROM ventas WHERE ventas.fecha_venta like %:fecha%  AND tienda_id=:tienda", nativeQuery = true)
+	public abstract ArrayList<VentaModel> ventasByFechaVenta(@Param("fecha") String fecha, @Param("tienda") Long tienda);
 
 }

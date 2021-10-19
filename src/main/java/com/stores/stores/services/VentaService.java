@@ -27,7 +27,7 @@ public class VentaService {
 		return creditoRepository.save(credito);
 	}
 	
-	public ArrayList<VentaModel> buscarByFecha(String fecha){
-		return ventaRepository.ventasByFechaVenta(fecha);
+	public ArrayList<VentaModel> buscarByFecha(String fecha, Long tienda){
+		return ventaRepository.ventasByFechaVenta(fecha, tienda);
 	}
 }
